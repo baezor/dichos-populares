@@ -5,7 +5,7 @@
 const Alexa = require('alexa-sdk');
 
 const SKILL_NAME = 'Refranes Populares';
-const GET_FACT_MESSAGE = "Este refrán me gusta mucho: ";
+const GET_DICHO_MESSAGE = "Este refrán me gusta mucho: ";
 const HELP_MESSAGE = 'Puedo decirte un refrán popular, ¿quieres uno?';
 const HELP_REPROMPT = '¿En qué te puedo ayudar?';
 const STOP_MESSAGE = '¡Adios!';
@@ -23,12 +23,12 @@ const handlers = {
         this.emit('obtenerRefran');
     },
     'obtenerRefran': function () {
-        const factArr = data;
-        const factIndex = Math.floor(Math.random() * factArr.length);
-        const randomFact = factArr[factIndex];
-        const speechOutput = GET_FACT_MESSAGE + randomFact;
+        const dichoArr = data;
+        const dichoIndex = Math.floor(Math.random() * dichoArr.length);
+        const dichoRandom = dichoArr[dichoIndex];
+        const speechOutput = GET_DICHO_MESSAGE + dichoRandom;
 
-        this.response.cardRenderer(SKILL_NAME, randomFact);
+        this.response.cardRenderer(SKILL_NAME, dichoRandom);
         this.response.speak(speechOutput);
         this.emit(':responseReady');
     },
